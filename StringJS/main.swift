@@ -8,16 +8,6 @@
 
 import Foundation
 
-
-if let boom = "cat cat cat".lastIndexOf("t") {
-    NSLog(String(boom))
-}
-
-NSLog("112".fromCharCode())
-
-
-/*
-
 // get the length of a string
 
 NSLog(String("Some Awesome String".length)) // 19
@@ -30,9 +20,11 @@ NSLog("More Awesomeness!".charAt(7)!) // e
 
 NSLog("string 1, ".concat("string 2, ", "string 3, ", "string 4")) // string 1, string 2, string 3, string 4
 
-// get index of substring within a string
+// get index of a substring within a string
 
-NSLog(String("Cat said meow".indexOf("meow", startFrom: 3)!)) // 6
+if let dolphinIndex = "cat dog dolphin".indexOf("dolphin", startFrom: 4) {
+    NSLog(String(dolphinIndex))
+}
     
 // extract substring by index (String.substr equivalent in JS)
 
@@ -42,5 +34,4 @@ NSLog("Yet Another String".substr(0, length: 3)) // Yet
 
 NSLog("Yet Another String".substring(4, endIndex: 11)) // Another
 
-*/
 

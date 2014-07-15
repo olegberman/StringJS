@@ -4,7 +4,7 @@ A tiny Swift extension library that implements JavaScript String functions that 
 
 You can read documentation on JavaScript String functions at [Mozilla Developer](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String).
 
-The following methods behave exactly the same in most cases, in some cases they [behave differently...](https://github.com/olegberman/StringJS#behavior-differences-with-javascript functions)
+The following methods behave exactly the same in most cases, in some cases they [behave differently...](https://github.com/olegberman/StringJS#behavior-differences-with-javascript-functions)
 
 ### Available functionality
 
@@ -36,39 +36,39 @@ Even though the default behaviour of __JavaScript__ function such as `indexOf` i
 
 ```swift
 if let dolphinIndex = "cat dog dolphin".indexOf("dolphin", startFrom: 4) {
-    String(dolphinIndex)) // 8
+    dolphinIndex // 8
 }
 ```
 
 ### Examples
 
-See *main.swift* file for tests
+See *main.swift* file for tests or take a look at quick overview here:
 
 ```swift
 
-String("Some Awesome String".length) // 19
+"Some Awesome String".length // 19
 
 "More Awesomeness!".charAt(7) // e
 
-String("A little more awesomeness!".charCodeAt(3)) // 105
+"A little more awesomeness!".charCodeAt(3) // 105
 
 "string 1, ".concat("string 2, ", "string 3, ", "string 4") // string 1, string 2, string 3, string 4
 
 "99".fromCharCode() // à
 
 if let dolphinIndex = "cat dog dolphin".indexOf("dolphin", startFrom: 4) {
-    String(dolphinIndex) // 8
+    dolphinIndex // 8
 }
 
 if let catLastIndex = "cat dog dolphin cat".indexOf("cat", startFrom: 4) {
-    String(catLastIndex) // 16
+    catLastIndex // 16
 }
 
 let matches:[String] = "ABCDABAC".match("\\w{4}")! // [ABCD, ABAC]
 
 "I love tea!".replace("tea", with: "coffee") // I love coffee!
 
-String("I love California".search("California")!) // 7
+"I love California".search("California")! // 7
 
 "iPhone or Android".splice(0, end: 6) // iPhone
 

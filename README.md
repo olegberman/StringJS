@@ -4,8 +4,6 @@ A tiny Swift extension library that implements JavaScript String functions that 
 
 You can read documentation on JavaScript String functions at [Mozilla Developer](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String).
 
-The following methods behave exactly the same in most cases, in some cases they [behave differently...](https://github.com/olegberman/StringJS#behavior-differences-with-javascript-functions)
-
 ### Available functionality
 
 * `length -> Int` (instance variable)
@@ -31,6 +29,8 @@ The following methods behave exactly the same in most cases, in some cases they 
 * `trim() -> String`
 
 ### Behavior differences with JavaScript functions
+
+All methods in the library behave exactly as in JavaScript the same in most cases, in some cases they behave differently..
 
 Even though the default behaviour of __JavaScript__ function such as `indexOf` is returning __-1__ in case of not finding a substring, I've decided to take advantage of Swift optionals therefore the correct code using indexOf would be:
 

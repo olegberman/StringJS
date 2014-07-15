@@ -12,20 +12,20 @@ extension String {
     
     var length: Int { return self.bridgeToObjectiveC().length }
     
-    func charAt(index: Int) -> String? {
+    func charAt(index: Int) -> String {
         return String(Array(self)[index])
     }
     
-    func charCodeAt(index: Int) -> Int? {
-        return Int((self as NSString).characterAtIndex(0))
+    func charCodeAt(index: Int) -> Int {
+        return Int((self as NSString).characterAtIndex(index))
     }
     
     func concat(strings: String...) -> String {
-        var result = self
+        var out = self
         for str in strings {
-            result += str
+            out += str
         }
-        return result;
+        return out
     }
     
     func fromCharCode() -> String {
@@ -35,7 +35,7 @@ extension String {
     func indexOf(string: String, startFrom: Int = 0) -> Int? {
         var str = self
         if startFrom != 0 {
-            str = str.substring(startFrom, endIndex: self.length)
+            str = str.substring(startFrom, end: self.length)
         }
         var index = str.bridgeToObjectiveC().rangeOfString(string).location
         if index == NSNotFound {
@@ -46,24 +46,24 @@ extension String {
     
     func lastIndexOf(string: String) -> Int? {
         // first check to get the first optional (starts with 0 index)
-        if var lastIndex:Int? = self.indexOf(string) {
-            var lastSafeIndex:Int? = lastIndex!
-            while lastIndex {
-                if var lastLoopIndex:Int? = self.indexOf(string, startFrom: lastIndex! + string.length) {
-                    lastIndex = lastLoopIndex
-                    lastSafeIndex = lastLoopIndex
+        if var index:Int? = self.indexOf(string) {
+            var lastIndex:Int? = index!
+            while index {
+                if var loopIndex:Int? = self.indexOf(string, startFrom: index! + string.length) {
+                    index = loopIndex
+                    lastIndex = loopIndex
                 } else {
-                    lastIndex = nil
+                    index = nil
                 }
             }
-            return lastSafeIndex
+            return lastIndex
         } else {
             return nil
         }
     }
     
     func localeCompare() {
-        // not implemented yet
+        
     }
     
     func match(searchPattern:String) -> Array<String>? {
@@ -80,19 +80,28 @@ extension String {
         }
     }
     
-    func replace() { }
+    func replace(what:String, with:String) -> String {
+        var exp = NSRegularExpression(pattern: what, options: nil, error: nil)
+        return exp.stringByReplacingMatchesInString(self, options: nil, range: NSMakeRange(0, self.length), withTemplate: with)
+    }
     
-    func search() { }
+    func search(what:String) -> Int? {
+        var exp = NSRegularExpression(pattern: what, options: nil, error: nil)
+        var match = exp.firstMatchInString(self, options: nil, range: NSMakeRange(0, self.length))
+        return match.range.location
+    }
     
     func splice(start: Int) -> String? {
-        return self.substring(start, endIndex: self.length)
+        return self.substring(start, end: self.length)
     }
     
     func splice(start: Int, end: Int) -> String {
-        return self.substring(start, endIndex: end)
+        return self.substring(start, end: end)
     }
     
-    func split() { }
+    func split(withWhat:String) -> NSArray {
+        return self.bridgeToObjectiveC().componentsSeparatedByString(withWhat)
+    }
     
     func substr(var index: Int) -> String {
         if index < 0 {
@@ -101,28 +110,24 @@ extension String {
         return self.bridgeToObjectiveC().substringWithRange(NSMakeRange(index, self.length))
     }
     
-    func substr(var index: Int, var length: Int) -> String {
+    func substr(var start: Int, var length: Int) -> String {
         length = abs(length)
-        if index < 0 {
-            index = self.length - abs(index)
+        if start < 0 {
+            start = self.length - abs(start)
         }
-        return self.bridgeToObjectiveC().substringWithRange(NSMakeRange(index, length))
+        return self.bridgeToObjectiveC().substringWithRange(NSMakeRange(start, length))
     }
     
-    func substring(var startIndex: Int, var endIndex: Int) -> String {
-        if startIndex < 0 {
-            startIndex = 0
+    func substring(var start: Int, var end: Int) -> String {
+        if start < 0 { start = 0 }
+        if end < 0 { end = 0 }
+        if start > end {
+            let _start = start
+            start = end
+            end = _start
         }
-        if endIndex < 0 {
-            endIndex = 0
-        }
-        if startIndex > endIndex {
-            let tmpForSwap = startIndex
-            startIndex = endIndex
-            endIndex = startIndex
-        }
-        endIndex = endIndex - startIndex
-        return self.bridgeToObjectiveC().substringWithRange(NSMakeRange(startIndex, endIndex))
+        end = end - start
+        return self.bridgeToObjectiveC().substringWithRange(NSMakeRange(start, end))
     }
     
     func toLocaleLowerCase() -> String {
@@ -141,6 +146,15 @@ extension String {
         return self.uppercaseString
     }
     
-    func trim() { }
+    func trim() -> String {
+        var tmp = self
+        while tmp.substr(0, length: 1) == " " {
+            tmp = tmp.substring(1, end: tmp.length)
+        }
+        while tmp.substr(0, length: 1) ==  " " {
+            tmp = tmp.substring(0, end: tmp.length - 1)
+        }
+        return tmp
+    }
     
 }

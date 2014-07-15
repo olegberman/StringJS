@@ -1,5 +1,10 @@
-# StringJS Swift Library
-A tiny Swift library that let's you work with strings in Swift as it was JavaScript
+# StringJS Swift Extension Library
+
+A tiny Swift extension library that implements JavaScript String functions that we're used to.
+
+You can read documentation on JavaScript String functions at [Mozilla Developer](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String).
+
+The following methods behave exactly the same in most cases, in some cases they [behave differently...](https://github.com/olegberman/StringJS#behavior-differences-with-javascript functions)
 
 ### Available functionality
 
@@ -10,51 +15,83 @@ A tiny Swift library that let's you work with strings in Swift as it was JavaScr
 * `fromCharCode() -> String`
 * `indexOf(string: String, startFrom: Int = 0) -> Int?`
 * `lastIndexOf(string: String) -> Int?`
+* `match(pattern:String) -> Array<String>?`
+* `replace(what:String, with:String) -> String`
+* `search(what:String) -> Int?`
+* `splice(start: Int) -> String?`
+* `splice(start: Int, end: Int) -> String?`
+* `split(withWhat:String) -> NSArray`
+* `substr(var index: Int) -> String`
 * `substr(var index: Int, var length: Int = 0) -> String`
 * `substring(var startIndex: Int, var endIndex: Int) -> String`
 * `toLocaleLowerCase() -> String`
 * `toLocaleUpperCase() -> String`
 * `toLowerCase() -> String`
 * `toUpperCase() -> String`
+* `trim() -> String`
 
-### Heads up
+### Behavior differences with JavaScript functions
 
-Even though the default behaviour of __JavaScript__ function such as `indexOf` is returning __-1__ in case of not finding a substring, I've decided to take advantage of Swift optionals therefore the correct code using indexOf would be something like
+Even though the default behaviour of __JavaScript__ function such as `indexOf` is returning __-1__ in case of not finding a substring, I've decided to take advantage of Swift optionals therefore the correct code using indexOf would be:
 
 ```swift
 if let dolphinIndex = "cat dog dolphin".indexOf("dolphin", startFrom: 4) {
-    NSLog(String(dolphinIndex)) // 8
+    String(dolphinIndex)) // 8
 }
 ```
 
-### More examples
+### Examples
 
-There's *main.swift* file with a bunch of tests that you can explore, here's a quick overview
+See *main.swift* file for tests
 
 ```swift
-// get the length of a string
 
-NSLog(String("Some Awesome String".length)) // 19
+String("Some Awesome String".length) // 19
 
-// get the character in a string by its index
+"More Awesomeness!".charAt(7) // e
 
-NSLog("More Awesomeness!".charAt(7)!) // e
+String("A little more awesomeness!".charCodeAt(3)) // 105
 
-// concatenate strings as in JavaScript
+"string 1, ".concat("string 2, ", "string 3, ", "string 4") // string 1, string 2, string 3, string 4
 
-NSLog("string 1, ".concat("string 2, ", "string 3, ", "string 4")) // string 1, string 2, string 3, string 4
-    
-// extract substring by index (String.substr equivalent in JS)
+"99".fromCharCode() // à
 
-NSLog("Yet Another String".substr(0, length: 3)) // Yet
+if let dolphinIndex = "cat dog dolphin".indexOf("dolphin", startFrom: 4) {
+    String(dolphinIndex) // 8
+}
 
-// extract substring by index (String.substring equivalent in JS)
+if let catLastIndex = "cat dog dolphin cat".indexOf("cat", startFrom: 4) {
+    String(catLastIndex) // 16
+}
 
-NSLog("Yet Another String".substring(4, endIndex: 11)) // Another
+let matches:[String] = "ABCDABAC".match("\\w{4}")! // [ABCD, ABAC]
+
+"I love tea!".replace("tea", with: "coffee") // I love coffee!
+
+String("I love California".search("California")!) // 7
+
+"iPhone or Android".splice(0, end: 6) // iPhone
+
+let companies:[AnyObject] = "apple,htc,lg,google".split(",") // ["apple", "htc", "lg", "google"]
+
+"Yet Another String".substr(0, length: 3) // Yet
+
+"Yet Another String".substring(4, end: 11) // Another
+
+"привет".toLocaleUpperCase() // ПРИВЕТ
+
+"ПРИВЕТ".toLocaleLowerCase() // привет
+
+"hello".toUpperCase() // HELLO
+
+"HELLO".toLowerCase() // hello
+
+"        test         ".trim() // test
 
 ```
 
 ### Development
 
-I will add the remaining functionality within several days from now, but I would love all of you to fork & commit! Also I would love to hear some feedback at bermanoleg@gmail[dot]com.
+Send feedback at bermanoleg@gmail[dot]com.
 
+I would love to see your commits & forks ♥!

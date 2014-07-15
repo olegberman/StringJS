@@ -1,9 +1,11 @@
 //
 //  StringJS.swift
-//  A set of swift string functions that behave as JavaScript functions
+//  Swift extension of String class that implements most of JavaScript String functions
 //
 //  Created by Oleg Berman on 2014-07-05.
 //  Copyright (c) 2014 Oleg Berman. All rights reserved.
+//
+//  https://github.com/olegberman/StringJS
 //
 
 import Foundation
@@ -45,7 +47,6 @@ extension String {
     }
     
     func lastIndexOf(string: String) -> Int? {
-        // first check to get the first optional (starts with 0 index)
         if var index:Int? = self.indexOf(string) {
             var lastIndex:Int? = index!
             while index {
@@ -63,11 +64,11 @@ extension String {
     }
     
     func localeCompare() {
-        
+        // TODO
     }
     
-    func match(searchPattern:String) -> Array<String>? {
-        var regex = NSRegularExpression(pattern: searchPattern, options: nil, error: nil)
+    func match(pattern:String) -> Array<String>? {
+        var regex = NSRegularExpression(pattern: pattern, options: nil, error: nil)
         var matches:[AnyObject] = regex.matchesInString(self, options: nil, range: NSRange(location: 0, length: self.length))
         if matches.count > 0 {
             var result:[String] = []
@@ -95,7 +96,7 @@ extension String {
         return self.substring(start, end: self.length)
     }
     
-    func splice(start: Int, end: Int) -> String {
+    func splice(start: Int, end: Int) -> String? {
         return self.substring(start, end: end)
     }
     

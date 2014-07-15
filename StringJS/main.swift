@@ -34,4 +34,6 @@ NSLog("Yet Another String".substr(0, length: 3)) // Yet
 
 NSLog("Yet Another String".substring(4, endIndex: 11)) // Another
 
+// returns all found matches based on regular expression pattern
 
+let matches:[String] = "ABCDABAC".match("\\w{4}")! // [ABCD, ABAC]

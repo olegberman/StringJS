@@ -13,7 +13,7 @@ extension String {
     var length: Int { return self.bridgeToObjectiveC().length }
     
     func charAt(index: Int) -> String? {
-        return self.substr(index, length: 1)
+        return String(Array(self)[index])
     }
     
     func charCodeAt(index: Int) -> Int? {
@@ -66,18 +66,42 @@ extension String {
         // not implemented yet
     }
     
-    func match() { }
+    func match(searchPattern:String) -> Array<String>? {
+        var regex = NSRegularExpression(pattern: searchPattern, options: nil, error: nil)
+        var matches:[AnyObject] = regex.matchesInString(self, options: nil, range: NSRange(location: 0, length: self.length))
+        if matches.count > 0 {
+            var result:[String] = []
+            for match:NSTextCheckingResult in matches as [NSTextCheckingResult] {
+                result.append(self.substr(match.range.location, length: match.range.length))
+            }
+            return result
+        } else {
+            return nil
+        }
+    }
     
     func replace() { }
     
     func search() { }
     
-    func splice() { }
+    func splice(start: Int) -> String? {
+        return self.substring(start, endIndex: self.length)
+    }
+    
+    func splice(start: Int, end: Int) -> String {
+        return self.substring(start, endIndex: end)
+    }
     
     func split() { }
     
-    func substr(var index: Int, var length: Int = 0) -> String {
-        // TODO: implement the JS behaviour when length param is not specified
+    func substr(var index: Int) -> String {
+        if index < 0 {
+            index = self.length - abs(index)
+        }
+        return self.bridgeToObjectiveC().substringWithRange(NSMakeRange(index, self.length))
+    }
+    
+    func substr(var index: Int, var length: Int) -> String {
         length = abs(length)
         if index < 0 {
             index = self.length - abs(index)

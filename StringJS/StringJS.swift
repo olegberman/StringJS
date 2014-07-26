@@ -12,17 +12,17 @@ import Foundation
 
 extension String {
     
-    var length: Int { return self.bridgeToObjectiveC().length }
+    public var length: Int { return self.bridgeToObjectiveC().length }
     
-    func charAt(index: Int) -> String {
+    public func charAt(index: Int) -> String {
         return String(Array(self)[index])
     }
     
-    func charCodeAt(index: Int) -> Int {
+    public func charCodeAt(index: Int) -> Int {
         return Int((self as NSString).characterAtIndex(index))
     }
     
-    func concat(strings: String...) -> String {
+    public func concat(strings: String...) -> String {
         var out = self
         for str in strings {
             out += str
@@ -30,11 +30,11 @@ extension String {
         return out
     }
     
-    func fromCharCode() -> String {
+    public func fromCharCode() -> String {
         return String(NSString(format: "%c", self))
     }
     
-    func indexOf(string: String, startFrom: Int = 0) -> Int? {
+    public func indexOf(string: String, startFrom: Int = 0) -> Int? {
         var str = self
         if startFrom != 0 {
             str = str.substring(startFrom, end: self.length)
@@ -46,7 +46,7 @@ extension String {
         return index + startFrom
     }
     
-    func lastIndexOf(string: String) -> Int? {
+    public func lastIndexOf(string: String) -> Int? {
         if var index:Int? = self.indexOf(string) {
             var lastIndex:Int? = index!
             while index {
@@ -63,11 +63,11 @@ extension String {
         }
     }
     
-    func localeCompare() {
+    public func localeCompare() {
         // TODO
     }
     
-    func match(pattern:String) -> Array<String>? {
+    public func match(pattern:String) -> Array<String>? {
         var regex = NSRegularExpression(pattern: pattern, options: nil, error: nil)
         var matches:[AnyObject] = regex.matchesInString(self, options: nil, range: NSRange(location: 0, length: self.length))
         if matches.count > 0 {
@@ -81,37 +81,37 @@ extension String {
         }
     }
     
-    func replace(what:String, with:String) -> String {
+    public func replace(what:String, with:String) -> String {
         var exp = NSRegularExpression(pattern: what, options: nil, error: nil)
         return exp.stringByReplacingMatchesInString(self, options: nil, range: NSMakeRange(0, self.length), withTemplate: with)
     }
     
-    func search(what:String) -> Int? {
+    public func search(what:String) -> Int? {
         var exp = NSRegularExpression(pattern: what, options: nil, error: nil)
         var match = exp.firstMatchInString(self, options: nil, range: NSMakeRange(0, self.length))
         return match.range.location
     }
     
-    func splice(start: Int) -> String? {
+    public func splice(start: Int) -> String? {
         return self.substring(start, end: self.length)
     }
     
-    func splice(start: Int, end: Int) -> String? {
+    public func splice(start: Int, end: Int) -> String? {
         return self.substring(start, end: end)
     }
     
-    func split(withWhat:String) -> NSArray {
+    public func split(withWhat:String) -> NSArray {
         return self.bridgeToObjectiveC().componentsSeparatedByString(withWhat)
     }
     
-    func substr(var index: Int) -> String {
+    public func substr(var index: Int) -> String {
         if index < 0 {
             index = self.length - abs(index)
         }
         return self.bridgeToObjectiveC().substringWithRange(NSMakeRange(index, self.length))
     }
     
-    func substr(var start: Int, var length: Int) -> String {
+    public func substr(var start: Int, var length: Int) -> String {
         length = abs(length)
         if start < 0 {
             start = self.length - abs(start)
@@ -119,7 +119,7 @@ extension String {
         return self.bridgeToObjectiveC().substringWithRange(NSMakeRange(start, length))
     }
     
-    func substring(var start: Int, var end: Int) -> String {
+    public func substring(var start: Int, var end: Int) -> String {
         if start < 0 { start = 0 }
         if end < 0 { end = 0 }
         if start > end {
@@ -131,23 +131,23 @@ extension String {
         return self.bridgeToObjectiveC().substringWithRange(NSMakeRange(start, end))
     }
     
-    func toLocaleLowerCase() -> String {
+    public func toLocaleLowerCase() -> String {
         return self.lowercaseStringWithLocale(NSLocale.currentLocale())
     }
     
-    func toLocaleUpperCase() -> String {
+    public func toLocaleUpperCase() -> String {
         return self.uppercaseStringWithLocale(NSLocale.currentLocale())
     }
     
-    func toLowerCase() -> String {
+    public func toLowerCase() -> String {
         return self.lowercaseString
     }
     
-    func toUpperCase() -> String {
+    public func toUpperCase() -> String {
         return self.uppercaseString
     }
     
-    func trim() -> String {
+    public func trim() -> String {
         var tmp = self
         while tmp.substr(0, length: 1) == " " {
             tmp = tmp.substring(1, end: tmp.length)

@@ -32,7 +32,7 @@ NSLog("I love tea!".replace("tea", with: "coffee")) // I love coffee!
 
 NSLog(String("I love California".search("California")!)) // 7
 
-NSLog("iPhone or Android".splice(0, end: 6)) // iPhone
+NSLog("iPhone or Android".splice(0, end: 6)!) // iPhone
 
 let companies:[AnyObject] = "apple,htc,lg,google".split(",") // ["apple", "htc", "lg", "google"]
 

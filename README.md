@@ -28,70 +28,108 @@ You can read documentation on JavaScript String functions at [Mozilla Developer]
 * `toUpperCase() -> String`
 * `trim() -> String`
 
-### Behavior differences with JavaScript functions
+### Behavior differences between StringJS.swift and JavaScript functions
 
 All methods in the library behave exactly as in JavaScript the same in most cases, in some cases they behave differently..
 
-Even though the default behaviour of __JavaScript__ function such as `indexOf` is returning __-1__ in case of not finding a substring, I've decided to take advantage of Swift optionals therefore the correct code using indexOf would be:
+Even though the default behavior of __JavaScript__ function such as `indexOf` is returning __-1__ in case of not finding a substring, I've decided to take advantage of Swift optionals therefore the correct code using indexOf would be:
 
 ```swift
-if let dolphinIndex = "cat dog dolphin".indexOf("dolphin", startFrom: 4) {
-    dolphinIndex // 8
+if let index = "It tastes like vanilla bean".indexOf("vanilla") {
+  NSLog("%d", index) // will output 15
+} else {
+  NSLog("Substring is not found!")
 }
 ```
 
 ### Examples
 
-See *main.swift* file for tests or take a look at quick overview here:
+See *StringJSTests/StringJSTests.swift* file for tests or take a look at them here, they describe the functionality pretty well:
 
 ```swift
-
-"Some Awesome String".length // 19
-
-"More Awesomeness!".charAt(7) // e
-
-"A little more awesomeness!".charCodeAt(3) // 105
-
-"string 1, ".concat("string 2, ", "string 3, ", "string 4") // string 1, string 2, string 3, string 4
-
-"99".fromCharCode() // à
-
-if let dolphinIndex = "cat dog dolphin".indexOf("dolphin", startFrom: 4) {
-    dolphinIndex // 8
+func testLengthProperty() {
+  let strlen = "doge".length
+  XCTAssertEqual(4, strlen, "The length of word 'doge' should be equal to 4")
 }
 
-if let catLastIndex = "cat dog dolphin cat".indexOf("cat", startFrom: 4) {
-    catLastIndex // 16
+func testCharAt() {
+  let word = "cat"
+  // NOTE, the count starts from 0 like in arrays
+  XCTAssertEqual("a", word.charAt(1), "The second char of 'car' should equal 'a'")
 }
 
-let matches:[String] = "ABCDABAC".match("\\w{4}")! // [ABCD, ABAC]
+func testCharCodeAt() {
+  let code = "bird".charCodeAt(2)
+  XCTAssertEqual(114, code, "The character code of 'r' should equal to 114")
+}
 
-"I love tea!".replace("tea", with: "coffee") // I love coffee!
+func testConcat() {
+  XCTAssertEqual("family", "fam".concat("i", "l", "y"), "Concat of 'fam' + 'i' + 'l' + 'y' should equal to 'family'");
+}
 
-"I love California".search("California")! // 7
+func testFromCharCode() {
+  XCTAssertEqual("r", "114".fromCharCode(), "Char code of 114 has to be equal to 'r'")
+}
 
-"iPhone or Android".splice(0, end: 6) // iPhone
+func testIndexOf() {
+  XCTAssertEqual(6, "coffeetea".indexOf("tea")!, "Index of 'tea' in 'coffeetea' should equal to 6")
+}
 
-let companies:[AnyObject] = "apple,htc,lg,google".split(",") // ["apple", "htc", "lg", "google"]
+func testLastIndexOf() {
+  XCTAssertEqual(15, "coffeeteacoffeecoffee".lastIndexOf("c")!, "Last index of 'coffee' in 'coffeeteacoffeecoffee' should be equal to 15")
+}
 
-"Yet Another String".substr(0, length: 3) // Yet
+func testMatch() {
+  XCTAssertEqual(["ABCD", "ABAC"], "ABCDABAC".match("\\w{4}")!, "Should match to '[ABCD, ABAC] array literal")
+}
 
-"Yet Another String".substring(4, end: 11) // Another
+func testReplace() {
+  XCTAssertEqual("I love coffee!", "I love tea!".replace("tea", with: "coffee"), "Should be equal to a string 'I love coffee!'")
+}
 
-"привет".toLocaleUpperCase() // ПРИВЕТ
+func testSearch() {
+  // String.search also supports regular expressions
+  XCTAssertEqual(7, "I love California".search("California")!, "The index of 'California' should be equal to 7")
+}
 
-"ПРИВЕТ".toLocaleLowerCase() // привет
+func testSplice() {
+  XCTAssertEqual("iPhone", "iPhone or Android".splice(0, end: 6)!, "The string should be equal to 'iPhone' after splicing")
+}
 
-"hello".toUpperCase() // HELLO
+func testSplit() {
+  XCTAssertEqual(["one", "two", "three"], "one,two,three".split(","), "The output array literal should equal [one, two, three]")
+}
 
-"HELLO".toLowerCase() // hello
+func testSubStr() {
+  XCTAssertEqual("yet", "yet another string".substr(0, length: 3), "Should be equal to 'yet'")
+}
 
-"        test         ".trim() // test
+func testSubString() {
+  XCTAssertEqual("another", "yet another string".substring(4, end: 11), "Should be equal to 'another'")
+}
+
+func testToLocaleUpperCase() {
+  XCTAssertEqual("БЕЛКА", "белка".toLocaleUpperCase(), "Uppercase of 'белка' should be equal to 'БЕЛКА' in cyrilics")
+}
+
+func testToLocaleLowerCase() {
+  XCTAssertEqual("енот", "ЕНОТ".toLocaleLowerCase(), "Lowercase of 'ЕНОТ' should be equal to 'енот'")
+}
+
+func testToUpperCase() {
+  XCTAssertEqual("HELLO", "hello".toUpperCase(), "The uppercase of 'hello' should be 'HELLO'")
+}
+
+func testToLowerCase() {
+  XCTAssertEqual("goodbye", "GOODBYE".toLowerCase(), "The lowercase of 'GOODBYE' should be equal to 'goodbye'")
+}
+
+func testTrim() {
+  XCTAssertEqual("trimmed", "   trimmed   ".trim(), "A trimmed version of '   trimmed   ' should equal to 'trimmed'")
+}
 
 ```
 
 ### Development
 
-Send feedback at bermanoleg@gmail[dot]com.
-
-I would love to see your commits & forks ♥!
+I would love to see your commits, issues, stars and forks!

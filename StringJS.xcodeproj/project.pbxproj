@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		05763FF519691A3900596ED7 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05763FF419691A3900596ED7 /* main.swift */; };
 		05763FFC19691A5100596ED7 /* StringJS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05763FFB19691A5100596ED7 /* StringJS.swift */; };
 		D935AA301B4F560700E61C4C /* StringJSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D935AA2F1B4F560700E61C4C /* StringJSTests.swift */; };
 		D935AA341B4F563700E61C4C /* StringJSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D935AA2F1B4F560700E61C4C /* StringJSTests.swift */; };
@@ -28,7 +27,6 @@
 
 /* Begin PBXFileReference section */
 		05763FF119691A3900596ED7 /* StringJS */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = StringJS; sourceTree = BUILT_PRODUCTS_DIR; };
-		05763FF419691A3900596ED7 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		05763FFB19691A5100596ED7 /* StringJS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringJS.swift; sourceTree = "<group>"; };
 		D935AA1E1B4F55C700E61C4C /* ddddd.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ddddd.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D935AA2B1B4F560700E61C4C /* StringJSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StringJSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -83,7 +81,6 @@
 		05763FF319691A3900596ED7 /* StringJS */ = {
 			isa = PBXGroup;
 			children = (
-				05763FF419691A3900596ED7 /* main.swift */,
 				05763FFB19691A5100596ED7 /* StringJS.swift */,
 			);
 			path = StringJS;
@@ -221,7 +218,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				05763FF519691A3900596ED7 /* main.swift in Sources */,
 				D935AA341B4F563700E61C4C /* StringJSTests.swift in Sources */,
 				05763FFC19691A5100596ED7 /* StringJS.swift in Sources */,
 			);
@@ -439,6 +435,7 @@
 				D935AA261B4F55C700E61C4C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D935AA311B4F560700E61C4C /* Build configuration list for PBXNativeTarget "StringJSTests" */ = {
 			isa = XCConfigurationList;
@@ -447,6 +444,7 @@
 				D935AA331B4F560700E61C4C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

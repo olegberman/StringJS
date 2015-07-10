@@ -12,7 +12,7 @@ import Foundation
 
 extension String {
     
-    public var length: Int { return self.bridgeToObjectiveC().length }
+    public var length: Int { return (self as NSString).length }
     
     public func charAt(index: Int) -> String {
         return String(Array(self)[index])
@@ -39,7 +39,7 @@ extension String {
         if startFrom != 0 {
             str = str.substring(startFrom, end: self.length)
         }
-        var index = str.bridgeToObjectiveC().rangeOfString(string).location
+        var index = (str as NSString).rangeOfString(string).location
         if index == NSNotFound {
             return nil
         }
@@ -49,7 +49,7 @@ extension String {
     public func lastIndexOf(string: String) -> Int? {
         if var index:Int? = self.indexOf(string) {
             var lastIndex:Int? = index!
-            while index {
+            while (index != nil) {
                 if var loopIndex:Int? = self.indexOf(string, startFrom: index! + string.length) {
                     index = loopIndex
                     lastIndex = loopIndex
@@ -69,10 +69,10 @@ extension String {
     
     public func match(pattern:String) -> Array<String>? {
         var regex = NSRegularExpression(pattern: pattern, options: nil, error: nil)
-        var matches:[AnyObject] = regex.matchesInString(self, options: nil, range: NSRange(location: 0, length: self.length))
+        var matches:[AnyObject] = regex!.matchesInString(self, options: nil, range: NSRange(location: 0, length: self.length))
         if matches.count > 0 {
             var result:[String] = []
-            for match:NSTextCheckingResult in matches as [NSTextCheckingResult] {
+            for match:NSTextCheckingResult in matches as! [NSTextCheckingResult] {
                 result.append(self.substr(match.range.location, length: match.range.length))
             }
             return result
@@ -80,16 +80,16 @@ extension String {
             return nil
         }
     }
-    
+  
     public func replace(what:String, with:String) -> String {
         var exp = NSRegularExpression(pattern: what, options: nil, error: nil)
-        return exp.stringByReplacingMatchesInString(self, options: nil, range: NSMakeRange(0, self.length), withTemplate: with)
+        return exp!.stringByReplacingMatchesInString(self, options: nil, range: NSMakeRange(0, self.length), withTemplate: with)
     }
     
     public func search(what:String) -> Int? {
         var exp = NSRegularExpression(pattern: what, options: nil, error: nil)
-        var match = exp.firstMatchInString(self, options: nil, range: NSMakeRange(0, self.length))
-        return match.range.location
+        var match = exp!.firstMatchInString(self, options: nil, range: NSMakeRange(0, self.length))
+        return match!.range.location
     }
     
     public func splice(start: Int) -> String? {
@@ -101,14 +101,14 @@ extension String {
     }
     
     public func split(withWhat:String) -> NSArray {
-        return self.bridgeToObjectiveC().componentsSeparatedByString(withWhat)
+        return (self as NSString).componentsSeparatedByString(withWhat)
     }
     
     public func substr(var index: Int) -> String {
         if index < 0 {
             index = self.length - abs(index)
         }
-        return self.bridgeToObjectiveC().substringWithRange(NSMakeRange(index, self.length))
+        return (self as NSString).substringWithRange(NSMakeRange(index, self.length))
     }
     
     public func substr(var start: Int, var length: Int) -> String {
@@ -116,7 +116,7 @@ extension String {
         if start < 0 {
             start = self.length - abs(start)
         }
-        return self.bridgeToObjectiveC().substringWithRange(NSMakeRange(start, length))
+        return (self as NSString).substringWithRange(NSMakeRange(start, length))
     }
     
     public func substring(var start: Int, var end: Int) -> String {
@@ -128,7 +128,7 @@ extension String {
             end = _start
         }
         end = end - start
-        return self.bridgeToObjectiveC().substringWithRange(NSMakeRange(start, end))
+        return (self as NSString).substringWithRange(NSMakeRange(start, end))
     }
     
     public func toLocaleLowerCase() -> String {

@@ -34,7 +34,7 @@ NSLog(String("I love California".search("California")!)) // 7
 
 NSLog("iPhone or Android".splice(0, end: 6)!) // iPhone
 
-let companies:[AnyObject] = "apple,htc,lg,google".split(",") // ["apple", "htc", "lg", "google"]
+let companies:[AnyObject] = "apple,htc,lg,google".split(",") as [AnyObject] // ["apple", "htc", "lg", "google"]
 
 NSLog("Yet Another String".substr(0, length: 3)) // Yet
 

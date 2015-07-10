@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		05763FF519691A3900596ED7 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05763FF419691A3900596ED7 /* main.swift */; };
 		05763FFC19691A5100596ED7 /* StringJS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05763FFB19691A5100596ED7 /* StringJS.swift */; };
+		D935AA301B4F560700E61C4C /* StringJSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D935AA2F1B4F560700E61C4C /* StringJSTests.swift */; };
+		D935AA341B4F563700E61C4C /* StringJSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D935AA2F1B4F560700E61C4C /* StringJSTests.swift */; };
+		D935AA371B4F574F00E61C4C /* StringJS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05763FFB19691A5100596ED7 /* StringJS.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -27,10 +30,28 @@
 		05763FF119691A3900596ED7 /* StringJS */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = StringJS; sourceTree = BUILT_PRODUCTS_DIR; };
 		05763FF419691A3900596ED7 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		05763FFB19691A5100596ED7 /* StringJS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringJS.swift; sourceTree = "<group>"; };
+		D935AA1E1B4F55C700E61C4C /* ddddd.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ddddd.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D935AA2B1B4F560700E61C4C /* StringJSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StringJSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D935AA2E1B4F560700E61C4C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D935AA2F1B4F560700E61C4C /* StringJSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringJSTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		05763FEE19691A3900596ED7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D935AA1B1B4F55C700E61C4C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D935AA281B4F560700E61C4C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -44,6 +65,7 @@
 			isa = PBXGroup;
 			children = (
 				05763FF319691A3900596ED7 /* StringJS */,
+				D935AA2C1B4F560700E61C4C /* StringJSTests */,
 				05763FF219691A3900596ED7 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -52,6 +74,8 @@
 			isa = PBXGroup;
 			children = (
 				05763FF119691A3900596ED7 /* StringJS */,
+				D935AA1E1B4F55C700E61C4C /* ddddd.xctest */,
+				D935AA2B1B4F560700E61C4C /* StringJSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -63,6 +87,23 @@
 				05763FFB19691A5100596ED7 /* StringJS.swift */,
 			);
 			path = StringJS;
+			sourceTree = "<group>";
+		};
+		D935AA2C1B4F560700E61C4C /* StringJSTests */ = {
+			isa = PBXGroup;
+			children = (
+				D935AA2F1B4F560700E61C4C /* StringJSTests.swift */,
+				D935AA2D1B4F560700E61C4C /* Supporting Files */,
+			);
+			path = StringJSTests;
+			sourceTree = "<group>";
+		};
+		D935AA2D1B4F560700E61C4C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D935AA2E1B4F560700E61C4C /* Info.plist */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -85,6 +126,40 @@
 			productReference = 05763FF119691A3900596ED7 /* StringJS */;
 			productType = "com.apple.product-type.tool";
 		};
+		D935AA1D1B4F55C700E61C4C /* ddddd */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D935AA241B4F55C700E61C4C /* Build configuration list for PBXNativeTarget "ddddd" */;
+			buildPhases = (
+				D935AA1A1B4F55C700E61C4C /* Sources */,
+				D935AA1B1B4F55C700E61C4C /* Frameworks */,
+				D935AA1C1B4F55C700E61C4C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ddddd;
+			productName = ddddd;
+			productReference = D935AA1E1B4F55C700E61C4C /* ddddd.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D935AA2A1B4F560700E61C4C /* StringJSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D935AA311B4F560700E61C4C /* Build configuration list for PBXNativeTarget "StringJSTests" */;
+			buildPhases = (
+				D935AA271B4F560700E61C4C /* Sources */,
+				D935AA281B4F560700E61C4C /* Frameworks */,
+				D935AA291B4F560700E61C4C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = StringJSTests;
+			productName = StringJSTests;
+			productReference = D935AA2B1B4F560700E61C4C /* StringJSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -96,6 +171,12 @@
 				TargetAttributes = {
 					05763FF019691A3900596ED7 = {
 						CreatedOnToolsVersion = 6.0;
+					};
+					D935AA1D1B4F55C700E61C4C = {
+						CreatedOnToolsVersion = 6.3.1;
+					};
+					D935AA2A1B4F560700E61C4C = {
+						CreatedOnToolsVersion = 6.3.1;
 					};
 				};
 			};
@@ -112,9 +193,28 @@
 			projectRoot = "";
 			targets = (
 				05763FF019691A3900596ED7 /* StringJS */,
+				D935AA1D1B4F55C700E61C4C /* ddddd */,
+				D935AA2A1B4F560700E61C4C /* StringJSTests */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D935AA1C1B4F55C700E61C4C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D935AA291B4F560700E61C4C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		05763FED19691A3900596ED7 /* Sources */ = {
@@ -122,7 +222,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				05763FF519691A3900596ED7 /* main.swift in Sources */,
+				D935AA341B4F563700E61C4C /* StringJSTests.swift in Sources */,
 				05763FFC19691A5100596ED7 /* StringJS.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D935AA1A1B4F55C700E61C4C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D935AA271B4F560700E61C4C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D935AA301B4F560700E61C4C /* StringJSTests.swift in Sources */,
+				D935AA371B4F574F00E61C4C /* StringJS.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -218,6 +335,82 @@
 			};
 			name = Release;
 		};
+		D935AA251B4F55C700E61C4C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = ddddd/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		D935AA261B4F55C700E61C4C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = ddddd/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		D935AA321B4F560700E61C4C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = StringJSTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		D935AA331B4F560700E61C4C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = StringJSTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -235,6 +428,23 @@
 			buildConfigurations = (
 				05763FF919691A3900596ED7 /* Debug */,
 				05763FFA19691A3900596ED7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D935AA241B4F55C700E61C4C /* Build configuration list for PBXNativeTarget "ddddd" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D935AA251B4F55C700E61C4C /* Debug */,
+				D935AA261B4F55C700E61C4C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		D935AA311B4F560700E61C4C /* Build configuration list for PBXNativeTarget "StringJSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D935AA321B4F560700E61C4C /* Debug */,
+				D935AA331B4F560700E61C4C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};

@@ -9,14 +9,14 @@
          <BuildActionEntry
             buildForTesting = "YES"
             buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "05763FF019691A3900596ED7"
-               BuildableName = "StringJS"
-               BlueprintName = "StringJS"
+               BlueprintIdentifier = "D935AA2A1B4F560700E61C4C"
+               BuildableName = "StringJSTests.xctest"
+               BlueprintName = "StringJSTests"
                ReferencedContainer = "container:StringJS.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -42,9 +42,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "05763FF019691A3900596ED7"
-            BuildableName = "StringJS"
-            BlueprintName = "StringJS"
+            BlueprintIdentifier = "D935AA2A1B4F560700E61C4C"
+            BuildableName = "StringJSTests.xctest"
+            BlueprintName = "StringJSTests"
             ReferencedContainer = "container:StringJS.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -58,16 +58,15 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "05763FF019691A3900596ED7"
-            BuildableName = "StringJS"
-            BlueprintName = "StringJS"
+            BlueprintIdentifier = "D935AA2A1B4F560700E61C4C"
+            BuildableName = "StringJSTests.xctest"
+            BlueprintName = "StringJSTests"
             ReferencedContainer = "container:StringJS.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -77,16 +76,15 @@
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Release"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "05763FF019691A3900596ED7"
-            BuildableName = "StringJS"
-            BlueprintName = "StringJS"
+            BlueprintIdentifier = "D935AA2A1B4F560700E61C4C"
+            BuildableName = "StringJSTests.xctest"
+            BlueprintName = "StringJSTests"
             ReferencedContainer = "container:StringJS.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

@@ -36,9 +36,9 @@ NSLog("iPhone or Android".splice(0, end: 6)!) // iPhone
 
 let companies:[AnyObject] = "apple,htc,lg,google".split(",") as [AnyObject] // ["apple", "htc", "lg", "google"]
 
-NSLog("Yet Another String".substr(0, length: 3)) // Yet
+NSLog("yet another string".substr(0, length: 3)) // Yet
 
-NSLog("Yet Another String".substring(4, end: 11)) // Another
+NSLog("yet another string".substring(4, end: 11)) // Another
 
 NSLog("привет".toLocaleUpperCase()) // ПРИВЕТ
 

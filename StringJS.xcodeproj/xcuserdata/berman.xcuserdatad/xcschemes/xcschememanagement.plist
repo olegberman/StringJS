@@ -9,10 +9,25 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>StringJSTests.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>05763FF019691A3900596ED7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D935AA1D1B4F55C700E61C4C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D935AA2A1B4F560700E61C4C</key>
 		<dict>
 			<key>primary</key>
 			<true/>

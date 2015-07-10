@@ -31,7 +31,7 @@ extension String {
     }
     
     public func fromCharCode() -> String {
-        return String(NSString(format: "%c", self))
+        return String(NSString(format: "%c", self.toInt()!))
     }
     
     public func indexOf(string: String, startFrom: Int = 0) -> Int? {
@@ -48,14 +48,15 @@ extension String {
     
     public func lastIndexOf(string: String) -> Int? {
         if var index:Int? = self.indexOf(string) {
-            var lastIndex:Int? = index!
+            var lastIndex:Int = index!
             while (index != nil) {
-                if var loopIndex:Int? = self.indexOf(string, startFrom: index! + string.length) {
-                    index = loopIndex
-                    lastIndex = loopIndex
-                } else {
-                    index = nil
-                }
+              let loopIndex:Int? = self.indexOf(string, startFrom: index! + string.length)
+              if (loopIndex != nil) {
+                  index = loopIndex
+                  lastIndex = loopIndex!
+              } else {
+                  index = nil
+              }
             }
             return lastIndex
         } else {
@@ -152,7 +153,7 @@ extension String {
         while tmp.substr(0, length: 1) == " " {
             tmp = tmp.substring(1, end: tmp.length)
         }
-        while tmp.substr(0, length: 1) ==  " " {
+        while tmp.substr(tmp.length - 1, length: 1) ==  " " {
             tmp = tmp.substring(0, end: tmp.length - 1)
         }
         return tmp
